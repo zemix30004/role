@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Products</h2>
+                <h2>Contacts</h2>
             </div>
             <div class="pull-right">
-                @can('product-create')
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                @can('contact-create')
+                <a class="btn btn-success" href="{{ route('contacts.create') }}">Create New Contact</a>
                 @endcan
             </div>
         </div>
@@ -23,25 +23,27 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Details</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Message</th>
             <th width="280px">Action</th>
         </tr>
-	    @foreach ($products as $product)
+	    @foreach ($contacts as $contact)
 	    <tr>
 	        <td>{{ ++$i }}</td>
-	        <td>{{ $product->name }}</td>
-	        <td>{{ $product->detail }}</td>
+	        <td>{{ $contact->name }}</td>
+	        <td>{{ $contact->phone }}</td>
+            <td>{{ $contact->email }}</td>
+	        <td>{{ $contact->message }}</td>
 	        <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
-                    @can('product-edit')
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('contacts.show',$contact->id) }}">Show</a>
+                    @can('contact-edit')
+                    <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a>
                     @endcan
-
-
                     @csrf
                     @method('DELETE')
-                    @can('product-delete')
+                    @can('contact-delete')
                     <button type="submit" class="btn btn-danger">Delete</button>
                     @endcan
                 </form>
@@ -49,10 +51,7 @@
 	    </tr>
 	    @endforeach
     </table>
-
-
-    {!! $products->links() !!}
-
+    {!! $contacts->links() !!}
 
 <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
 @endsection
