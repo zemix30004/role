@@ -23,6 +23,43 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/barbershop1', function () {
+    return view('barbershop1');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/barbers', function () {
+    return view('barbers');
+});
+Route::get('/contact1', function () {
+    return view('contact1');
+});
+Route::get('/elements', function () {
+    return view('elements');
+});
+Route::get('/index1', function () {
+    return view('index1');
+});
+Route::get('/pricing', function () {
+    return view('pricing');
+});
+Route::get('/barbershop2', function () {
+    return view('barbershop2');
+});
+Route::get('/blog-home', function () {
+    return view('blog-home');
+});
+Route::get('/blog-single', function () {
+    return view('blog-single');
+});
+Route::get('/mail', function () {
+    return view('mail');
+});
+Route::get('/services', function () {
+    return view('services');
+});
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function () {
